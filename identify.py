@@ -3,6 +3,8 @@ import ctypes
 import tkinter.filedialog
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill
+from openpyxl.utils.exceptions import IllegalCharacterError
+
 
 def main():
     try:
@@ -46,7 +48,10 @@ def main():
 
             for path in range(0, len(paths)):
                 for row in range(0, len(d[path])):
-                    r = ws.cell(row=cnt, column=count, value=(d[path])[row])
+                    try:
+                        r = ws.cell(row=cnt, column=count, value=(d[path])[row])
+                    except IllegalCharacterError:
+                        continue
                     if (d[path])[row] in e:
                         r.fill = fill
                     cnt += 1

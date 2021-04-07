@@ -87,13 +87,12 @@ def main():
 				w.write(tests[1] + ": " + str(bavg) + " MB/s | Max:  " + str(bmax) + " MB/s | Min:  " + str(bmin) + " MB/s\n\n")
 
 				w.write("[Write Average, Max, Min]\n")
-				w.write(tests[2] + ": " + str(tp[0]) + " kIOPS | Max: " + str(tp[1]) + " kIOPS | Min: " + str(tp[2]) + " kIOPS\n")
-				w.write(tests[3] + ": " + str(tp[3]) + " kIOPS | Max: " + str(tp[4]) + " kIOPS | Min: " + str(tp[5]) + " kIOPS\n")
-				w.write(tests[4] + ": " + str(tp[6]) + " kIOPS | Max: " + str(tp[7]) + " kIOPS | Min: " + str(tp[8]) + " kIOPS\n")
-				w.write(tests[5] + ": " + str(tp[9]) + " kIOPS | Max: " + str(tp[10]) + " kIOPS | Min: " + str(tp[11]) + " kIOPS\n")
-				w.write(tests[6] + ": " + str(tp[12]) + " kIOPS | Max: " + str(tp[13]) + " kIOPS | Min: " + str(tp[14]) + " kIOPS\n")
-				w.write(tests[7] + ": " + str(tp[15]) + " kIOPS | Max: " + str(tp[16]) + " kIOPS | Min: " + str(tp[17]) + " kIOPS\n\n")
-
+				cnt = 2
+				cnt2 = 0
+				while cnt < 8:
+					w.write(tests[cnt] + ": " + str(tp[cnt2]) + " kIOPS | Max: " + str(tp[cnt2+1]) + " kIOPS | Min: " + str(tp[cnt2+2]) + " kIOPS\n")
+					cnt += 1
+					cnt2 += 3
 				w.close()
 		else:
 			root.destroy()
